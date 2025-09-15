@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root{
+    --primary-color: #2C2D5B;
+    --secondary-color: #F67366;
+    --tertiary-color: #009637;
+    --tertiary-subtle-color: #009637;
+    --background-color: #F2F5F9;
+    --text-color: #212121;
+    --information-color: #425166;
+    --actions-rapides-bg: #F9FAFB;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-color: var(--background-color);
+    font-family: 'Poppins', sans-serif;
+}

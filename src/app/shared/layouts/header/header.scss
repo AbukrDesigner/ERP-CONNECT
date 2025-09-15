@@ -1,0 +1,23 @@
+.profil{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #D8D8D8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profil.icon{
+    font-size: 25px;
+    color: #c9c9c9;
+}
+
+.header{
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 8px;;
+}
+.breadcrumb{
+    background-color: rgba(255, 255, 255, .1);
+    // width: 16%;
+}

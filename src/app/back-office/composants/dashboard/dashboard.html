@@ -1,0 +1,106 @@
+<div class="container  mb-4 cards">
+	<div class="row mb-4">
+		<div class="col-md-3 mb-3">
+			<div class="card border-0 shadow-sm">
+				<div class="card-body" [routerLink]="['/entreprises']" style="cursor: pointer;">
+					<div class="d-flex flex-row align-items-center justify-content-between">
+                        <div class="d-flex flex-column">
+							<span class="fw-bold text-muted">30</span>
+							<h6 class="text-muted small">Entreprises enrôlées</h6>
+						</div>
+                        <div class="icon"><i class="bi bi-building icon phone"></i></div>
+                    </div>
+					
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 mb-3">
+			<div class="card border-0 shadow-sm">
+				<div class="card-body" (click)="navigateToEntreprisesActives()" style="cursor: pointer;">
+					<div class="d-flex flex-row align-items-center justify-content-between">
+                        <div class="d-flex flex-column">
+							<span class="text-muted fw-bold">15</span>
+							<h6 class="text-muted small">Entreprises actives</h6>
+						</div>
+                        <div><i class="bi bi-building icon phone"></i></div>
+                    </div>
+					
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 mb-3">
+			<div class="card border-0 shadow-sm">
+				<div class="card-body" (click)="navigateToEntreprisesInactives()" style="cursor: pointer;">
+                    <div class="d-flex flex-row align-items-center justify-content-between">
+                        <div class="d-flex flex-column">
+							<span class="text-muted fw-bold">15</span>
+							<h6 class="text-muted small">Entreprises inactives</h6>
+						</div>
+                        <div><i class="bi bi-building icon phone"></i></div>
+                    </div>
+                    
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 mb-3">
+			<div class="card border-0 shadow-sm" (click)="navigateToServices()" style="cursor: pointer;">
+				<div class="card-body">
+					<div class="d-flex flex-row align-items-center justify-content-between">
+                        <div class="d-flex flex-column">
+							<span class="fw-bold text-muted">32</span>
+							<h6 class="text-muted small">Services</h6>
+						</div>
+                        <div class="icon"><i class="bi bi-boxes icon box"></i></div>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!---Actions Rapides-->
+	<div class="row align-items-top justify-content-center g-3">
+		<div class="col-lg-4">
+			<div class="bg-white rounded pb-3 h-75">
+				<h5 class="actions text-muted p-3 fw-medium">Actions rapides</h5>
+				<div class="border rounded mx-3 p-3">
+					<div class="d-flex align-items-center justify-content-between">
+						<div class="d-flex align-items-center">
+							<div class="pe-2"><i class="bi bi-person-fill-add icon phone"></i></div>
+							<div class="d-flex flex-column">
+								<span class="small text-muted text-capitalize">Nouvel enrôlement</span>
+								<small class="subtle text-muted">Ajouter une nouvelle entreprise</small>
+							</div>
+						</div>
+						<div>
+							<a  href="javasscript:(0)" class="text-capitalize text-decoration-none text-muted subtle" routerLink>ajouter</a>
+						</div>
+					</div>
+				</div>
+				<!--Services-->
+				<div class="border rounded mx-3 p-3 mt-3">
+					<div class="d-flex align-items-center justify-content-between">
+						<div class="d-flex align-items-center">
+							<div class="pe-2"><i class="bi bi-boxes icon box"></i></div>
+							<div class="d-flex flex-column">
+								<span class="small text-muted text-capitalize">Nouvel enrôlement</span>
+								<small class="subtle text-muted">Ajouter une nouvelle entreprise</small>
+							</div>
+						</div>
+						<div>
+							<a  href="javasscript:(0)" class="text-capitalize text-decoration-none text-success subtle">Créer</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Repartition des entreprises par secteurs d'activites-->
+		<div class="col-lg-8">
+			<div class="bg-white rounded pb-3 h-75">
+			<h5 class="actions text-muted p-3 fw-medium">Répartition des entreprises par secteurs d'activités</h5>
+			<div class="p-4">
+				<canvas #MyChart id="MyChart" class="w-50 h-50"></canvas>
+			</div>
+			</div>
+		</div>
+	</div>
+	
+</div>

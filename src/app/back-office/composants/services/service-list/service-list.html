@@ -1,0 +1,240 @@
+<div class="container">
+	<div class="bg-white rounded p-3 enrolement-section">
+		<div class="d-flex align-items-center justify-content-between py-3">
+			<h4 class="text-muted">Liste des services</h4>
+			<button class="btn enrolement-btn" data-bs-toggle="modal" data-bs-target="#createService">Créer un service</button>
+		</div>
+		<!--Recherche rapide-->
+		<div class="border-top border-bottom text-muted">
+			<div class="d-flex align-items-center py-2 gap-3">
+				<div class="d-flex align-items-center search-bar  rounded">
+					<i class="bi bi-search text-muted ps-2"></i>
+					<input type="text" class="form-control search-bar border-0" placeholder="Rechercher une entreprise">
+				</div>
+				<div class="d-flex align-items-center border rounded p-2 gap-1">
+					<div>
+						<i class="bi bi-filter fs-5 text-muted"></i>
+					</div>
+					<span class="text-muted">Filtrer avancé</span>
+                    
+				</div>
+			</div>
+		</div>
+		<!--Tableau des entreprises-->
+		<div class="table-responsive mt-4">
+			<table class="table table-borderless align-middle mb-0">
+				<thead class="thead">
+					<tr class=" text-muted text-uppercase small">
+						<th scope="col" class="thead">id</th>
+						<th scope="col" class="thead">Libellé</th>
+						<th scope="col" class="thead">Secteur</th>
+						<th scope="col" class="thead">Type de transit</th>
+						<th scope="col" class="thead">Description</th>
+						<th scope="col" class="thead">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<span>1</span>
+						</td>
+						<td><small>Lorem</small></td>
+						<td>Transitaire</td>
+						<td>Import</td>
+						<td class="small"><span>Service de livraison en 24h maximum
+</span></td>
+						<td>
+							<div class="d-flex align-items-center">
+								<!-- <div class="me-3"><i class="bi bi-eye text-muted"></i></div> -->
+								<div class="me-3" data-bs-toggle="modal" data-bs-target="#editService"><i class="bi bi-pencil-square pencil"></i></div>
+								<div (click)="UnloService()"><i class="bi bi-lock-fill text-danger"></i></div>
+							</div>
+						</td>
+					</tr>
+					 <tr>
+						<td>
+							<span>2</span>
+						</td>
+						<td><small>Lorem</small></td>
+						<td>Transport</td>
+						<td>Export</td>
+						<td class="small"><span>Service de livraison en 24h maximum
+</span></td>
+						<td>
+							<div class="d-flex align-items-center">
+								<!-- <div class="me-3"><i class="bi bi-eye text-muted"></i></div> -->
+								<div class="me-3" data-bs-toggle="modal" data-bs-target="#editService"><i class="bi bi-pencil-square pencil"></i></div>
+								<div><i class="bi bi-unlock-fill text-success"></i></div>
+							</div>
+						</td>
+					</tr>
+					 <tr>
+						<td>
+							<span>3</span>
+						</td>
+						<td><small>Lorem</small></td>
+						<td>Consignation</td>
+						<td>Import</td>
+						<td class="small"><span>Stockage sécurisé pour marchandises en transit</span></td>
+						<td>
+							<div class="d-flex align-items-center">
+								<!-- <div class="me-3"><i class="bi bi-eye text-muted"></i></div> -->
+								<div class="me-3" data-bs-toggle="modal" data-bs-target="#editService"><i class="bi bi-pencil-square pencil"></i></div>
+								<div (click)="LockService()"><i class="bi bi-unlock-fill text-success"></i></div>
+							</div>
+						</td>
+					</tr>
+					 <tr>
+						<td>
+							<span>4</span>
+						</td>
+						<td><small>Lorem</small></td>
+						<td>Transitaire</td>
+						<td>Transit</td>
+						<td class="small"><span>Aide à la préparation des documents douaniers</span></td>
+						<td>
+							<div class="d-flex align-items-center">
+								<!-- <div class="me-3"><i class="bi bi-eye text-muted"></i></div> -->
+								<div class="me-3" data-bs-toggle="modal" data-bs-target="#editService"><i class="bi bi-pencil-square pencil"></i></div>
+								<div><i class="bi bi-unlock-fill text-success" (click)="LockService() " ></i></div>
+							</div>
+						</td>
+					</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+									<td colspan="100%" class="p-0">
+										<nav aria-label="Pagination" class="table-pagination w-100">
+											<ul class="pagination justify-content-end mb-0">
+										<li class="page-item disabled">
+											<a class="page-link">Précédent</a>
+										</li>
+										<li class="page-item active"><a class="page-link" href="javascript:(0)">1</a></li>
+										<li class="page-item"><a class="page-link" href="javascript:(0)">2</a></li>
+										<li class="page-item"><a class="page-link" href="javascript:(0)">3</a></li>
+										<li class="page-item">
+											<a class="page-link" href="javascript:(0)">Suivant</a>
+										</li>
+									</ul>
+								</nav>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+	</div>
+    <!--Modal editer un service-->
+    <div class="modal fade" id="editService" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-muted" id="exampleModalLabel">Modification d'un service</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="serviceName" class="form-label required">Libellé du service</label>
+                            <input type="text" class="form-control" id="serviceName" value="Livraison" placeholder="Entrez le libellé du service">
+                        </div>
+						<div class="mb-3">
+							<label class="form-label required">Secteur</label><br>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="secteurTransitaire" value="Transitaire" checked>
+								<label class="form-check-label" for="secteurTransitaire">Transitaire</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="secteurTransport" value="Transport" checked>
+								<label class="form-check-label" for="secteurTransport">Transport</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="secteurConsignation" value="Consignation">
+								<label class="form-check-label" for="secteurConsignation">Consignation</label>
+							</div>
+						</div>
+						<div class="mb-3">
+							<label class="form-label required">Type de transit</label><br>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="import" value="Import" checked>
+								<label class="form-check-label" for="import">Import</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="export" value="Export" checked>
+								<label class="form-check-label" for="export">Export</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="transit" value="Transit">
+								<label class="form-check-label" for="transit">Transit</label>
+							</div>
+						</div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control" id="description" rows="3" placeholder="Entrez une description du service"></textarea>    
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                         <button type="submit" class="btn enrolement-btn py-2">Enregistrer les modifications</button>
+                         <button class="btn close">Annuler</button>
+                       </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+		</div>
+    <!--Modal creer un service-->
+    <div class="modal fade" id="createService" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-muted" id="exampleModalLabel">Création d'un service</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="serviceName" class="form-label required">Libellé du service</label>
+                            <input type="text" class="form-control" id="serviceName" placeholder="Entrez le libellé du service">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label required">Secteur</label><br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="secteurTransitaire" value="Transitaire">
+                                <label class="form-check-label" for="secteurTransitaire">Transitaire</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="secteurTransport" value="Transport">
+                                <label class="form-check-label" for="secteurTransport">Transport</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="secteurConsignation" value="Consignation">
+                                <label class="form-check-label" for="secteurConsignation">Consignation</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label required">Type de transit</label><br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="import" value="Import">
+                                <label class="form-check-label" for="import">Import</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="export" value="Export">
+                                <label class="form-check-label" for="export">Export</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="transit" value="Transit">
+                                <label class="form-check-label" for="transit">Transit</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control" id="description" rows="3" placeholder="Entrez une description du service"></textarea>
+                        </div>
+                       <div class="d-flex align-items-center gap-3">
+                         <button type="submit" class="btn enrolement-btn py-2" (click)="ServiceCreated()">Créer le service</button>
+                         <button class="btn close">Annuler</button>
+                       </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

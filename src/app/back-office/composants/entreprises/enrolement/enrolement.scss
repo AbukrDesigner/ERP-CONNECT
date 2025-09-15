@@ -1,0 +1,21 @@
+// Couleur personnalisée pour les checkboxes cochés
+.form-check-input:checked {
+    background-color: #F67366;
+    border-color: #F67366;
+}
+.required::after{
+    content: '*';
+    color: red;
+}
+input[type="text"]{
+    height: 50px;
+    width: 400px;
+}
+.enrolement-btn{
+    background-color: var(--primary-color);
+    color: white;
+}
+.search-section{
+    position: relative;
+    top: -50px;
+}
