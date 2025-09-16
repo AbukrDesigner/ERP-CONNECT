@@ -28,7 +28,7 @@ constructor(private router :Router) {}
         Swal.fire(
           'Déconnecté !',
           'Vous avez été déconnecté avec succès.',
-          'success'
+          'success', 
         )
       }
     });

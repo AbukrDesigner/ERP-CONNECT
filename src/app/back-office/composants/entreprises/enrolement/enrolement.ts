@@ -47,7 +47,7 @@ export class Enrolement {
         // Ici vous pouvez naviguer vers la page suivante ou afficher les informations
       } else {
         // NINEA non trouvé - erreur
-        this.errorMessage = `Le NINEA "${this.ninea}" est pas trouvable dans le système`;
+        this.errorMessage = `Le NINEA "${this.ninea}" est introuvable dans le système`;
       }
     }, 1000);
   }

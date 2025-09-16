@@ -71,7 +71,7 @@
 							</div>
 						</div>
 						<div>
-							<a  href="javasscript:(0)" class="text-capitalize text-decoration-none text-muted subtle" routerLink>ajouter</a>
+							<a class="text-capitalize text-decoration-none text-muted subtle" [routerLink]="['/entreprises/enrolement']">ajouter</a>
 						</div>
 					</div>
 				</div>
@@ -86,7 +86,7 @@
 							</div>
 						</div>
 						<div>
-							<a  href="javasscript:(0)" class="text-capitalize text-decoration-none text-success subtle">Créer</a>
+							<a class="text-capitalize text-decoration-none text-success subtle" [routerLink]="['/services']" [queryParams]="{ open: 'create' }">Créer</a>
 						</div>
 					</div>
 				</div>
@@ -95,7 +95,7 @@
 		<!--Repartition des entreprises par secteurs d'activites-->
 		<div class="col-lg-8">
 			<div class="bg-white rounded pb-3 h-75">
-			<h5 class="actions text-muted p-3 fw-medium">Répartition des entreprises par secteurs d'activités</h5>
+			<h5 class="actions text-muted px-3 fw-medium">Répartition des entreprises par secteurs d'activités</h5>
 			<div class="p-4">
 				<canvas #MyChart id="MyChart" class="w-50 h-50"></canvas>
 			</div>

@@ -34,67 +34,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr *ngFor="let e of entreprises">
                         <td>
-                            <span>Fall-Transit</span>
+                            <span>{{ e.raisonSociale }}</span>
                         </td>
-                        <td><small>fall@gmail.com</small></td>
-                        <td>33 000 00 00</td>
-                                                                        <td>Transitaire</td>
-                        <td class="text-center small"><span class="badge bg-success-subtle text-success">Active</span></td>
+                        <td><small>{{ e.contact }}</small></td>
+                        <td>{{ e.telephone }}</td>
+                        <td>{{ e.secteurs.join(' / ') }}</td>
+                        <td class="text-center small">
+                            <span class="badge"
+                                  [class.bg-success-subtle]="e.actif"
+                                  [class.text-success]="e.actif"
+                                  [class.bg-danger-subtle]="!e.actif"
+                                  [class.text-danger]="!e.actif">{{ e.actif ? 'Active' : 'Inactive' }}</span>
+                        </td>
                         <td>
                             <div class="d-flex align-items-center">
                                 <div class="me-3"><i class="bi bi-eye text-muted"></i></div>
                                 <div class="me-3"><i class="bi bi-pencil-square pencil" style="cursor: pointer;"></i></div>
-                                <div (click)="UnlockEntreprise()" style="cursor: pointer;"><i class="bi bi-unlock-fill unlocked"></i></div>
-                            </div>
-                        </td>
-                    </tr>
-                     <tr>
-                        <td>
-                            <span>Fall-Transit</span>
-                        </td>
-                        <td><small>fall@gmail.com</small></td>
-                        <td>33 000 00 00</td>
-                        <td><span>Transitaire</span>/<span>Consignation</span></td>
-                        <td class="text-center small"><span class="badge bg-success-subtle text-success">Active</span></td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div class="me-3"><i class="bi bi-eye text-muted"></i></div>
-                                <div class="me-3"><i class="bi bi-pencil-square pencil" style="cursor: pointer;"></i></div>
-                                <div (click)="UnlockEntreprise()" style="cursor: pointer;"><i class="bi bi-unlock-fill unlocked"></i></div>
-                            </div>
-                        </td>
-                    </tr>
-                     <tr>
-                        <td>
-                            <span>TRANSSEN LOGISTICS</span>
-                        </td>
-                        <td><small>trans@gmail.com</small></td>
-                        <td>33 000 00 00</td>
-                                                                        <td>Transport</td>
-                        <td class="text-center"><span class="badge bg-success-subtle text-success small">Active</span></td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div class="me-3"><i class="bi bi-eye text-muted"></i></div>
-                                <div class="me-3"><i class="bi bi-pencil-square pencil" style="cursor: pointer;"></i></div>
-                                <div (click)="UnlockEntreprise()" style="cursor: pointer;"><i class="bi bi-unlock-fill unlocked"></i></div>
-                            </div>
-                        </td>
-                    </tr>
-                     <tr>
-                        <td>
-                            <span>Ets. Diouf & Fils</span>
-                        </td>
-                        <td><small>diouf&fils@gmail.com</small></td>
-                        <td>33 000 00 00</td>
-                                                                        <td>Consignation</td>
-                        <td class="text-center small"><span class="badge bg-danger-subtle text-danger ">Inactive</span></td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div class="me-3"><i class="bi bi-eye text-muted"></i></div>
-                                <div class="me-3"><i class="bi bi-pencil-square pencil" style="cursor: pointer;"></i></div>
-                                <div (click)="LockEntreprise()" style="cursor: pointer;"><i class="bi bi-lock-fill text-danger"></i></div>
+                                <div *ngIf="e.actif; else locked" (click)="LockEntreprise(e)" style="cursor: pointer;"><i class="bi bi-unlock-fill unlocked"></i></div>
+                                <ng-template #locked>
+                                    <div (click)="UnlockEntreprise(e)" style="cursor: pointer;"><i class="bi bi-lock-fill text-danger"></i></div>
+                                </ng-template>
                             </div>
                         </td>
                     </tr>
