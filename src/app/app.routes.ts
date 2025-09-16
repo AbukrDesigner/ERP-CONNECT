@@ -1,4 +1,7 @@
 import { Routes } from '@angular/router';
+import { Login } from './back-office/composants/login/login';
+import { ForgetPassword } from './back-office/composants/forget-password/forget-password';
+import { ResetPassword } from './back-office/composants/reset-password/reset-password';
 
 export const routes: Routes = [
     {
@@ -23,6 +26,27 @@ export const routes: Routes = [
         loadChildren:() => import('./back-office/composants/services/services.routes').then(
             m => m.SERVICES_ROUTES
         )
+    },
+    {
+        path:'login',
+        component: Login,
+        data:{
+            title:'Se connecter',
+        }
+    },
+    {
+        path:'forget-password',
+        component: ForgetPassword,
+        data:{
+            title:'Mot de passe oublié',
+        }
+    },
+    {
+        path:'reset-password',
+        component: ResetPassword,
+        data:{
+            title:'Réinitialiser le mot de passe',
+        }
     },
     {
         path: '**',
