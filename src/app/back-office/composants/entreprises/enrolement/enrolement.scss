@@ -19,3 +19,26 @@ input[type="text"]{
     position: relative;
     top: -50px;
 }
+
+// Styles pour les messages d'erreur
+.text-danger {
+    color: #dc3545 !important;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+// Style pour le bouton en état de chargement
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+// Animation pour l'icône de chargement
+.bi-hourglass-split {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

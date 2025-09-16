@@ -1,27 +1,42 @@
 import { Component, NgModule } from '@angular/core';
-import { FormsModule, NgForm, NgModel } from '@angular/forms';
-import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule, NgForm, NgModel, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ FormsModule, ],
+  imports: [ CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    RouterLink ],
   templateUrl: './login.html',
   styleUrl: './login.scss'
 })
 export class Login {
-  constructor(private router : Router) {}
-     email: string = '';
-  password: string = '';
-  rememberMe: boolean = false;
+  loginForm: FormGroup;
+  hide: boolean = true;
 
-  onSubmit() {
-    console.log('Form submitted');
-    console.log('Email:', this.email);
-    console.log('Password:', this.password);
-    console.log('Remember Me:', this.rememberMe);
-    
-    // ici tu peux appeler ton service pour authentification
+  constructor(private router: Router, private fb: FormBuilder) {
+    this.loginForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 
+  onLogin() {
+    if (this.loginForm.valid) {
+      console.log('Form submitted');
+      console.log('Username:', this.loginForm.value.username);
+      console.log('Password:', this.loginForm.value.password);
+      this.router.navigate(['/dashboard']);
+    }
+  }
+
+  onForgotPassword() {
+    // Logique pour mot de passe oublié
+  this.router.navigate(['/forget-password']);
+  }
 }

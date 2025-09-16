@@ -1,32 +1,96 @@
-<div class="container-fluid p-4">
-    <div class="row justify-content-center align-items-center vh-100">
-        <div class="col-md-4">
-            <div class="card border-0 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title text-center mb-4">Connexion</h5>
-                    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">                      
-                        <div class="mb-3">
-                            <label for="email" class="form-label required">Adresse e-mail</label>
-                            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" required email>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label required">Mot de passe</label>
-                            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required minlength="6">
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="rememberMe" name="rememberMe" [(ngModel)]="rememberMe">
-                                <label class="form-check-label" for="rememberMe">
-                                    Se souvenir de moi  
-                                </label>
-                            </div>
-                            <a routerLink="/reset-password" class="text-decoration-none">Mot de passe oublié</a>
-                        </div>
-                        <button type="submit" class="btn w-100 login-btn" [disabled]="loginForm.invalid">Se connecter</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+<div class="login-container">
+  <!-- Background elements
+  <div class="background-elements">
+    <div class="iot-text">IOT</div>
+    <div class="network-icon network-top-right">
+      <i class="bi bi-wifi"></i>
     </div>
+    <div class="network-icon network-bottom-left">
+      <i class="bi bi-diagram-3"></i>
+    </div>
+  </div> -->
 
+  <!-- Login form -->
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+        <div class="login-form-container">
+          <div class="pb-4 text-center">
+            <img src="assets/images/logo.svg" alt="middleware" class="w-">
+          </div>
+          <div class="login-form pb-4">
+            <h5 class="login-title">Connexion</h5>
+      
+      <form [formGroup]="loginForm">
+        <div class="form-group">
+          <label class="form-label">Identifiant</label>
+          <div class="input-container">
+            <input
+              type="text"
+              class="form-input"
+              placeholder=""
+              formControlName="username"
+            />
+            <i class="bi bi-person input-icon"></i>
+          </div>
+          <div *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.invalid" class="error-message">
+            Le username est requis.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Mot de passe</label>
+          <div class="input-container">
+            <input
+              [type]="hide ? 'password' : 'text'"
+              class="form-input"
+              placeholder=""
+              formControlName="password"
+            />
+            <button
+              type="button"
+              class="toggle-password-btn"
+              (click)="hide = !hide"
+            >
+              <i class="bi bi-eye-slash" *ngIf="hide"></i>
+              <i class="bi bi-eye" *ngIf="!hide"></i>
+            </button>
+          </div>
+          <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="error-message">
+            Le mot de passe est requis.
+          </div>
+        </div>
+
+        <button
+          type="button"
+          class="login-button"
+          (click)="onLogin()"
+          [disabled]="loginForm.invalid"
+        >
+          Se connecter
+        </button>
+
+        <a href="javascript:(0)" class="forgot-password" (click)="onForgotPassword()">
+          Mot de passe oublié ?
+        </a>
+      </form>
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <!-- <div class="login-footer mt-4">
+    <div class="help-text d-flex align-items-center justify-content-center">
+      <div class="cellphone">
+        <i class="bi bi-telephone "></i>
+      </div>
+      Besoin d'aide ? Contactez-nous
+    </div>
+    <div class="copyright">
+      © Copyright - 2025 GAINDE2000 | GUS
+    </div>
+  </div> -->
 </div>
+

@@ -1,0 +1,84 @@
+.form-check-input:checked {
+    background-color: #F67366;
+    border-color: #F67366;
+}
+.tout-cocher{
+    color: #F67366;
+    cursor: pointer;
+}
+input[type="text"], input[type="email"], input[type="tel"]{
+    height: 50px;
+}
+// .required::after{
+//     content: ' *';
+//     color: red;
+// }
+// .form-check-input:checked {
+//     background-color: #F67366;
+//     border-color: #F67366;
+// }
+.stepper-section{
+    position: relative;
+    top: -50px;
+}
+.border-dashed{
+    border: .1px dashed #000;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    // &:hover{
+    //     background-color: #f0f0f0;
+    // }
+    &:active{
+        background-color: #e0e0e0;
+    }
+    &:focus{
+        outline: none;
+    }
+    &:disabled{
+        opacity: 0.5;
+    }
+    &:hover{
+        border-color: #000;
+    }
+    &:active{
+        border-color: #000;
+    }
+    &:focus{
+        outline: none;
+    }
+    &:disabled{
+        opacity: 0.5;
+    }
+}
+.logo-upload{
+ color: #F67366;
+ font-size: 2rem;
+}
+.btn-save{
+    background-color: var(--primary-color);
+    color: white;
+}
+.btn-previous{
+    background-color: #CBD5E1;
+    color: var(--primary-color);
+}
+.btn-cancel{
+    border: radius 10px;
+    border-color: #F67366;
+    color: #F67366;
+}
+
+.tout-cocher {
+    color: #F67366;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 500;
+    
+    &:hover {
+        color: #e55a4f;
+        text-decoration: underline;
+    }
+}

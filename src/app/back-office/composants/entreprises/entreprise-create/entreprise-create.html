@@ -1,0 +1,315 @@
+<div class="container">
+   <div class="bg-white rounded stepper-section py-5">
+    <mat-stepper>
+        <mat-step label="Organisme" state="phone">
+            <div>
+                <div class="py-4">
+                    <h5 class="text-muted">Information de l'organisme</h5>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-4">
+                        <div>
+                            <label for="nom" class="form-label ">Raison sociale</label>
+                            <input type="text" class="form-control" id="nom" value="Sénégal transit SARL" readonly>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div>
+                            <label for="nom" class="form-label ">NINEA</label>
+                            <input type="text" class="form-control" id="nom" value="123456789" readonly >
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div>
+                            <label for="nom" class="form-label">Code PPM</label>
+                            <input type="text" class="form-control" id="nom" value="0011" readonly>
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-4">
+
+                        <div class=" py-4">
+                            <label class="form-label required">Secteur(s)</label><br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="secteurTransitaire" value="Transitaire" checked>
+                                <label class="form-check-label" for="secteurTransitaire">Transitaire</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="secteurTransport" value="Transport" checked>
+                                <label class="form-check-label" for="secteurTransport">Transport</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="secteurConsignation" value="Consignation">
+                                <label class="form-check-label" for="secteurConsignation">Consignation</label>
+                            </div>
+            </div>
+                    </div> -->
+                    <div class="pt-5">
+                        <label for="logo" class="form-label">Logo</label>
+                        <div class="border-dashed p-3" (click)="onUploadAreaClick()">
+                            <div class="logo-upload"><i class="bi bi-upload fs-4"></i></div>
+                            <input type="file" class="d-none" id="logo" (change)="onFileSelected($event)" accept=".png,.jpg,.jpeg">
+                            <div class="text-muted" *ngIf="!fileName">Télécharger un logo</div>
+                            <div class="text-success" *ngIf="fileName">{{ fileName }}</div>
+                            <small class="text-muted">Format : PNG, JPG, JPEG</small>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <div   class="d-flex justify-content-end">
+                            <div class="btn-save p-2 rounded" style="width: max-content;">
+                                <button matButton matStepperNext class="btn text-white">Suivant <span><i class="bi bi-arrow-right"></i></span></button>
+                            </div>
+                           
+                           
+                         </div>
+                    </div>
+                </div>
+            </div>
+         
+        </mat-step>
+        <mat-step label="Représentant légal" state="chat">
+            <div>
+                <div class="py-4">
+                    <h5 class="text-muted">Information du représentant légal</h5>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-4">
+                        <div>
+                            <label for="nom" class="form-label ">Prénom</label>
+                            <input type="text" class="form-control" id="nom" value="Al Amine" readonly>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div>
+                            <label for="nom" class="form-label ">Nom</label>
+                            <input type="text" class="form-control" id="nom" value="Ndiaye" readonly >
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div>
+                            <label for="nom" class="form-label">Email</label>
+                            <input type="text" class="form-control" id="nom" value="alaminendiaye@domaine.com" readonly>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="py-4">
+                            <label for="nom" class="form-label">Fonction</label>
+                            <input type="text" class="form-control" id="nom" value="Directeur adjoint" readonly>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="py-4">
+                            <label for="nom" class="form-label">Téléphone</label>
+                            <input type="text" class="form-control" id="nom" value="77 436 xx xx" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5 d-flex gap-3 align-items-center justify-content-between">
+                        <div class="">
+                            <button class="btn btn-cancel rounded px-3 py-2">Annuler</button>
+                        </div>
+                       <div class="d-flex gap-3">
+                            <div class="text-end btn-previous p-2 rounded">
+                                <button matButton matStepperPrevious><span><i class="bi bi-arrow-left p-2"></i></span>Precedent </button>
+                            
+                            </div>
+                            <div  class="text-end btn-save p-2 rounded">
+                                <button matButton matStepperNext class="btn text-white">Suivant <span><i class="bi bi-arrow-right"></i></span></button>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         
+        </mat-step>
+        <mat-step label="Adresse du siège social">
+            <div>
+                <div class="py-4">
+                    <h5 class="text-muted">Information sur l’adresse du siège social</h5>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-4">
+                        <div>
+                            <label for="nom" class="form-label ">Numéro et rue</label>
+                            <input type="text" class="form-control" id="nom" value="Rue 31, X 18" readonly>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div>
+                            <label for="nom" class="form-label ">Complément</label>
+                            <input type="text" class="form-control" id="nom" value="Lorem upsium" readonly >
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div>
+                            <label for="nom" class="form-label">Région</label>
+                            <input type="text" class="form-control" id="nom" value="Dakar" readonly>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="py-4">
+                            <label for="nom" class="form-label">Pays </label>
+                            <input type="text" class="form-control" id="nom" value="Sénégal" readonly>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="py-4">
+                            <label for="nom" class="form-label">Ville</label>
+                            <input type="text" class="form-control" id="nom" value="Dakar" readonly>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="py-4">
+                            <label for="nom" class="form-label">Téléphone</label>
+                            <input type="text" class="form-control" id="nom" value="78 354 xx xx" readonly>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="py-2">
+                            <label for="nom" class="form-label">Fax</label>
+                            <input type="text" class="form-control" id="nom" value="33 993 24 00" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5 d-flex gap-3 align-items-center justify-content-between">
+                        <div class="">
+                            <button class="btn btn-cancel rounded px-3 py-2">Annuler</button>
+                        </div>
+                       <div class="d-flex gap-3">
+                            <div class="text-end btn-previous p-2 rounded">
+                                <button matButton matStepperPrevious><span><i class="bi bi-arrow-left p-2"></i></span>Precedent </button>
+                            
+                            </div>
+                            <div  class="text-end btn-save p-2 rounded">
+                                <button matButton matStepperNext class="btn text-white">Suivant <span><i class="bi bi-arrow-right"></i></span></button>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-step>
+        <mat-step label="Services">
+            <div class="p-3">
+                <div class="py-4">
+                    <h5 class="text-muted">Attribution de(s) service(s)</h5>
+                </div>
+                <div class="row align-items-top ">
+                    <div class="col-lg-4">
+                       <div class="border rounded p-3 h-100">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="fs-6">Secteur <span class="small">(Transitaire)</span></span>
+                            <a href="javascript:void(0)" class="small tout-cocher" (click)="toggleAllServices('transitaire')">
+                                {{ areAllServicesSelected('transitaire') ? 'Tout décocher' : 'Tout cocher' }}
+                            </a>
+                           </div>
+                           <div class="py-3">
+                            <span class="small text-muted">Services disponibles:</span>
+                           </div>
+                           <div class="d-flex flex-column" *ngFor="let service of servicesTransitaire; let i = index">
+                            <div class="d-flex align-items-center justify-content-start gap-2">
+                                <input class="form-check-input" 
+                                       type="checkbox" 
+                                       [id]="'transitaire-' + i"
+                                       [checked]="isServiceSelected(service, 'transitaire')"
+                                       (change)="onServiceChange(service, 'transitaire', $event)">
+                                <label class="form-check-label pt-2" [for]="'transitaire-' + i">{{ service }}</label>
+                            </div>
+                           </div>
+                       </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="border rounded p-3 h-100">
+                         <div class="d-flex align-items-center justify-content-between">
+                             <span class="fs-6">Secteur <span class="small">(Consignation)</span></span>
+                             <a href="javascript:void(0)" class="small tout-cocher" (click)="toggleAllServices('consignation')">
+                                {{ areAllServicesSelected('consignation') ? 'Tout décocher' : 'Tout cocher' }}
+                            </a>
+                            </div>
+                            <div class="py-3">
+                             <span class="small text-muted">Services disponibles:</span>
+                            </div>
+                            <div class="d-flex flex-column" *ngFor="let service of servicesConsignation; let i = index">
+                                <div class="d-flex align-items-center justify-content-start gap-2">
+                                    <input class="form-check-input" 
+                                           type="checkbox" 
+                                           [id]="'consignation-' + i"
+                                           [checked]="isServiceSelected(service, 'consignation')"
+                                           (change)="onServiceChange(service, 'consignation', $event)">
+                                    <label class="form-check-label pt-2" [for]="'consignation-' + i">{{ service }}</label>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+
+                </div>
+                <div class="mt-5 d-flex gap-3 align-items-center justify-content-between">
+                    <div class="">
+                        <button class="btn btn-cancel rounded px-3 py-2">Annuler</button>
+                    </div>
+                   <div class="d-flex gap-3">
+                        <div class="text-end btn-previous p-2 rounded">
+                            <button matButton matStepperPrevious><span><i class="bi bi-arrow-left p-2"></i></span>Precedent </button>
+                        
+                        </div>
+                        <div  class="text-end btn-save p-2 rounded">
+                            <button matButton matStepperNext class="btn text-white">Suivant <span><i class="bi bi-arrow-right"></i></span></button>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-step>
+        <mat-step label="Compte">
+            <div class="p-3">
+                <div class="py-4">
+                    <h5 class="text-muted">Information sur le compte</h5>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-4">
+                        <div>
+                            <label for="nom" class="form-label ">Prénom</label>
+                            <input type="text" class="form-control" id="nom" placeholder="Saisir">
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <div>
+                            <label for="nom" class="form-label">Nom</label>
+                            <input type="text" class="form-control" id="nom" placeholder="Saisir">
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="py-4">
+                            <label for="nom" class="form-label">Email </label>
+                            <input type="email" class="form-control" id="nom" placeholder="Saisir">
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="py-4">
+                            <label for="nom" class="form-label">Téléphone</label>
+                            <input type="tel" class="form-control" id="nom" placeholder="Saisir">
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5 d-flex gap-3 align-items-center justify-content-between">
+                        <div class="">
+                            <button class="btn btn-cancel rounded px-3 py-2">Annuler</button>
+                        </div>
+                       <div class="d-flex gap-3">
+                            <div class="text-end btn-previous p-2 rounded">
+                                <button matButton matStepperPrevious><span><i class="bi bi-arrow-left p-2"></i></span>Precedent </button>
+                            
+                            </div>
+                            <div  class="text-end btn-save p-2 rounded">
+                                <button matButton matStepperNext class="btn text-white">Suivant <span><i class="bi bi-arrow-right"></i></span></button>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-step>
+    </mat-stepper>
+   </div>
+</div>

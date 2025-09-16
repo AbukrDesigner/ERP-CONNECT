@@ -5,6 +5,7 @@ import { EntrepriseDetails } from "./entreprise-details/entreprise-details";
 import { Enrolement } from "./enrolement/enrolement";
 import { Inactive } from "./inactive/inactive";
 import { Active } from "./active/active";
+import { EntrepriseCreate } from "./entreprise-create/entreprise-create";
 
 export const ENTREPRISES_ROUTES :Routes=[
     {
@@ -61,6 +62,16 @@ export const ENTREPRISES_ROUTES :Routes=[
                     ]
                 },
             },
+            {
+                path:'create',
+                component: EntrepriseCreate,
+                data:{
+                    title:'Création d\'entreprise',
+                    breadcrumb:[
+                        { url:'/entreprises/entreprise-create' },
+                    ]
+                },
+            }
             // {
             //     pathMatch:'full',
             //     redirectTo:'',
